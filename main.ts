@@ -146,5 +146,17 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
-	
+    if (light2 == 0) {
+        strip = neopixel.create(DigitalPin.P2, 14, NeoPixelMode.RGB)
+        strip.showColor(neopixel.colors(NeoPixelColors.Red))
+        light2 = 1
+        pins.digitalWritePin(DigitalPin.P0, 1)
+        pins.digitalWritePin(DigitalPin.P1, 1)
+    } else {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        strip.clear()
+    }
 })
+let strip: neopixel.Strip = null
+let light2 = 0
+light2 = 0
